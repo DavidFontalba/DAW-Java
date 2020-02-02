@@ -32,6 +32,7 @@ public class Rectangle {
     
     Rectangle.numCreated += 1;
     
+    assert sideIsRight(base) && sideIsRight(height);
     if (sideIsRight(base)) {
       this.base = base;
     }
