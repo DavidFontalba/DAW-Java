@@ -8,7 +8,9 @@ import POO.Circulo;
 
 public class TestCirculo {
 	public static void main(String[] args) {
-		Circulo circle = new Circulo(Math.random()*10);
+		Circulo circle = new Circulo(Math.random()*Circulo.maxRad); //Un valor aleatorio entre el radio máximo y 0
+		//Circulo circle = new Circulo(1);
+		
 		System.out.println(circle);
 		
 		circle.crecer(27);

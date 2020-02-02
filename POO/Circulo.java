@@ -40,16 +40,26 @@ public class Circulo {
    * Un círculo puede crecer. Aumenta su radio.
    * @param suma
    */
-  public void crecer(double suma) {
-  	this.radio += suma;
+  public void crecer(double mult) {
+  	assert this.radio * mult >= 0;
+    if (this.radio * mult >= 0) {
+    	this.radio *= mult;
+    } else {
+    	System.out.println("ERROR: El radio debe resultar igual o mayor que 0.");
+    }
   }
   
   /**
    * Un círculo puede menguar. Decrementa su radio.
    * @param resta
    */
-  public void menguar(double resta) {
-  	this.radio -= resta;
+  public void menguar(double div) {
+  	assert this.radio / div >= 0;
+    if (this.radio / div >= 0) {
+    	this.radio /= div;
+    } else {
+    	System.out.println("ERROR: El radio debe resultar igual o mayor que 0.");
+    }
   }
   
   /**
