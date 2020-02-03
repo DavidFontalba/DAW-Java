@@ -1,4 +1,6 @@
 package POO;
+
+import javax.swing.JOptionPane;
 /**
  * 2. Crea la clase “Circulo” en Java que responda al siguiente comportamiento:
  * Un círculo puede crecer. Aumenta su radio.
@@ -47,6 +49,10 @@ public class Circulo {
     } else {
     	System.out.println("ERROR: El radio debe resultar igual o mayor que 0.");
     }
+    
+    if (this.radio==0) {
+			JOptionPane.showMessageDialog(null, "Soy un mísero punto sin área");
+		}
   }
   
   /**
@@ -54,12 +60,19 @@ public class Circulo {
    * @param resta
    */
   public void menguar(double div) {
-  	assert this.radio / div >= 0;
-    if (this.radio / div >= 0) {
+  	assert this.radio / div > 0 && div != 0;
+  	
+    if (div == 0) {
+    	System.out.println("ERROR: No se puede dividir por 0.");
+    } else if (this.radio / div > 0) {
     	this.radio /= div;
-    } else {
+  	} else {
     	System.out.println("ERROR: El radio debe resultar igual o mayor que 0.");
     }
+    
+    if (this.radio==0) {
+			JOptionPane.showMessageDialog(null, "Soy un mísero punto sin área");
+		}
   }
   
   /**
@@ -88,6 +101,9 @@ public class Circulo {
 
 	public void setRadio(double radio) {
 		this.radio = radio;
+		if (this.radio==0) {
+			JOptionPane.showMessageDialog(null, "Soy un mísero punto sin área");
+		}
 	}
 	
 	//Métodos de Clase

@@ -18,6 +18,9 @@ public class TestCirculo {
 		
 		circle.menguar(10);
 		System.out.println(circle);
+		
+		circle.setRadio(0);
 	}
+	
 		
 }
