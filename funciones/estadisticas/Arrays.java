@@ -1,8 +1,11 @@
 package funciones.estadisticas;
+import java.util.ArrayList;
 
+/**
+ * @author David Galván Fontalba
+ *
+ */
 
-/*
-*/
 
 public class Arrays {
   /**
@@ -11,7 +14,7 @@ public class Arrays {
    * el for que hace de foreach
    * 
    * @param array
-   * @return
+   * @return media
    */
   static public double media(double[] array) {
     double suma = 0;
@@ -20,6 +23,16 @@ public class Arrays {
       suma += array[i];
     }
     return suma/array.length;
+  }
+  
+  /**
+   * Misma función aplicada a un ArrayList
+   * @param array
+   * @return media
+   */
+  static public double media(ArrayList<Integer> array) {
+    int miSuma = suma(array);
+    return miSuma/array.size();
   }
 
   /**
@@ -37,5 +50,49 @@ public class Arrays {
     }
     return suma/array.length;
   }
+  
+  /**
+   * 
+   * @param array
+   * @return maximo
+   */
+  static public int maximo(ArrayList<Integer> array, int minimo) {
+    int max = minimo;
+    for (int i=0; i < array.size(); i++) {
+      if (array.get(i) > max) {
+        max = array.get(i);
+      }
+    }
+    return max;
+  }
+    
+  /**
+   * 
+   * @param array
+   * @return minimo
+   */
+  static public int minimo(ArrayList<Integer> array, int maximo) {
+    int min = maximo;
+    for (int i=0; i < array.size(); i++) {
+      if (array.get(i) < min) {
+        min = array.get(i);
+      }
+    }
+    return min;
+  }
+  
+  /**
+   * 
+   * @param array
+   * @return suma
+   */
+  static public int suma(ArrayList<Integer> array) {
+    int suma = 0;
+    for (int i=0; i < array.size(); i++) {
+      suma += array.get(i);  
+    }
+    return suma;
+  }
+  
 
 }
