@@ -7,8 +7,8 @@ public class Carta {
   // Atributos de la clase
   private static ArrayList<Carta> cartasRobadas = new ArrayList<Carta>();
   private static int numCreated = 0;
-  private static String[] PALOS = {"oros", "copas", "espadas", "bastos"};
-  private static String[] FIGURAS = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "Sota", "Caballo", "Rey"};
+  public static String[] PALOS = {"bastos", "copas", "espadas", "oros"};
+  public static String[] FIGURAS = {"As", "2", "3", "4", "5", "6", "7", "Sota", "Caballo", "Rey"};
   
   // Atributos de la carta
   private String palo, cara;
@@ -20,8 +20,8 @@ public class Carta {
   public Carta() {
     
     do {
-      this.palo = PALOS[ (int)(Math.random() * 4) ];
-      this.cara = FIGURAS[ (int)(Math.random() * 12) ];
+      this.palo = PALOS[ (int)(Math.random() * PALOS.length) ];
+      this.cara = FIGURAS[ (int)(Math.random() * FIGURAS.length) ];
     } while (this.yaExiste());
       
     
