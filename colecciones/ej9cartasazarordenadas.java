@@ -21,17 +21,29 @@ import colecciones.Carta;
 public class ej9cartasazarordenadas {
   public static void main(String[] args) {
     ArrayList<Carta> cartas = new ArrayList<Carta>();
+    Carta aux;
     int NUMCARTAS = 10;
     
     //Meto las cartas en el Array
     for (int i=0; i<NUMCARTAS; i++) {
-      cartas.add( new Carta() );
+      aux = new Carta();
+      
+      boolean yaExiste = false;
+      for (int j=0; j<cartas.size(); j++) {
+        if (cartas.get(i).equals(aux)) {
+          yaExiste=true;
+        }
+      }
+      if (!yaExiste) {
+        cartas.add( new Carta() );
+      } 
+      
     }
     
     //Ejercicio 9
     //Ordeno el Array
     ArrayList<Carta> cartasOrdenadas = new ArrayList<Carta>();
-    Carta aux;
+    Carta auxil;
     
       
     for (int i=0; i<Carta.PALOS.length; i++) { //Recorre cada Palo
@@ -43,8 +55,8 @@ public class ej9cartasazarordenadas {
           //Si una carta coincide con el primer palo y cara a ordenar
           if (cartas.get(a).getPalo() == Carta.PALOS[i]) {
             if (cartas.get(a).getCara() == Carta.FIGURAS[j]) {
-              aux = cartas.get(a);
-              cartasOrdenadas.add(aux); //Meto la carta en el nuevo array ordenado
+              auxil = cartas.get(a);
+              cartasOrdenadas.add(auxil); //Meto la carta en el nuevo array ordenado
             }
           }
         }

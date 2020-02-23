@@ -5,7 +5,6 @@ import java.util.Arrays;
 
 public class Carta {
   // Atributos de la clase
-  private static ArrayList<Carta> cartasRobadas = new ArrayList<Carta>();
   private static int numCreated = 0;
   public static String[] PALOS = {"bastos", "copas", "espadas", "oros"};
   public static String[] FIGURAS = {"As", "2", "3", "4", "5", "6", "7", "Sota", "Caballo", "Rey"};
@@ -19,15 +18,10 @@ public class Carta {
    */
   public Carta() {
     
-    do {
-      this.palo = PALOS[ (int)(Math.random() * PALOS.length) ];
-      this.cara = FIGURAS[ (int)(Math.random() * FIGURAS.length) ];
-    } while (this.yaExiste());
-      
-    
+    this.palo = PALOS[ (int)(Math.random() * PALOS.length) ];
+    this.cara = FIGURAS[ (int)(Math.random() * FIGURAS.length) ];
     
     numCreated++;
-    cartasRobadas.add(this);
   }
   
   // Constructor con parámetros
@@ -45,19 +39,30 @@ public class Carta {
     }
     
     numCreated++;
-    cartasRobadas.add(this);
   }
-  
-  //Método estático para comprobar que una carta no se ha repetido
-  private boolean yaExiste() {
-    for (int i=0; i<cartasRobadas.size(); i++) {
-      if (cartasRobadas.get(i).palo == this.palo && cartasRobadas.get(i).cara == this.cara) {
-        return true;
-      }
-    }
-    return false;
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Carta other = (Carta) obj;
+    if (cara == null) {
+      if (other.cara != null)
+        return false;
+    } else if (!cara.equals(other.cara))
+      return false;
+    if (palo == null) {
+      if (other.palo != null)
+        return false;
+    } else if (!palo.equals(other.palo))
+      return false;
+    return true;
   }
-  
+
   @Override
   public String toString() {
     return  cara + " de " + palo + ".";

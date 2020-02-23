@@ -17,11 +17,23 @@ import colecciones.Carta;
 public class ej8cartasazar {
   public static void main(String[] args) {
     ArrayList<Carta> cartas = new ArrayList<Carta>();
+    Carta aux;
     int NUMCARTAS = 10;
     
     //Meto las cartas en el Array
     for (int i=0; i<NUMCARTAS; i++) {
-      cartas.add( new Carta() );
+      aux = new Carta();
+      
+      boolean yaExiste = false;
+      for (int j=0; j<cartas.size(); j++) {
+        if (cartas.get(i).equals(aux)) {
+          yaExiste=true;
+        }
+      }
+      if (!yaExiste) {
+        cartas.add( new Carta() );
+      } 
+      
     }
     
     //Muestro las cartas por pantalla
